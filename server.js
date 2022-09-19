@@ -26,7 +26,7 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
-//Get the notes db when loading notes page 
+//Get the notes from db when loading notes page 
 app.get('/api/notes', (req, res) => {
     var data = fs.readFileSync(path.join(__dirname, '/db/db.json'), 'utf8');
     res.json(JSON.parse(data));    
