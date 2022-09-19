@@ -7,7 +7,7 @@ const fs = require('fs');
 //const { clog } = require('./middleware/clog');
 //const api = require('./public/assets/js/index');
 
-const PORT = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
