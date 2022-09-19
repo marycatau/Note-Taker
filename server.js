@@ -42,6 +42,28 @@ app.post('/api/notes',(req,res) => {
     res.status(200).json('success');
 });
 
+
+//Delete Note to database
+app.delete('/api/notes/:id',(req,res) => {
+  const deleteid =  req.params.id;
+  console.log (deleteid);
+  const data = fs.readFileSync(path.join(__dirname, '/db/db.json'), 'utf8');    
+  const currentdb = JSON.parse(data);
+  //Check the if the unique id and delete that data
+  for (var i=0 ;i<currentdb.length; i++){
+    if (currentdb[i].id === deleteid){
+      currentdb.splice(i,1);
+      break;
+    }
+  } 
+  console.log (currentdb);
+  fs.writeFileSync(
+      path.join(__dirname, '/db/db.json'), JSON.stringify(currentdb), 
+      (err) => err ? console.error(err) : console.log('data is written to file.')
+  );
+  res.status(200).json('success');
+});
+
 // GET Route for homepage
 app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
