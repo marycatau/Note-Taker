@@ -1,23 +1,16 @@
 const express = require('express');
 const path = require('path');
-const mydb = require('./db/db.json');
 const fs = require('fs');
+const {v4 : uuidv4} = require('uuid');
 
-
-//const { clog } = require('./middleware/clog');
-//const api = require('./public/assets/js/index');
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 
-// Import custom middleware, "cLog"
-//app.use(clog);
 
-// Middleware for parsing JSON and urlencoded form data
+//parsing JSON 
 app.use(express.json());
-//app.use(express.urlencoded({ extended: true }));
-//app.use('/api', api);
 
 app.use(express.static('public'));
 
@@ -38,6 +31,9 @@ app.post('/api/notes',(req,res) => {
     const newdata = req.body;
     const data = fs.readFileSync(path.join(__dirname, '/db/db.json'), 'utf8');    
     const currentdb = JSON.parse(data);
+    //add unique id to the notes
+    newdata.id = uuidv4();
+    //console.log(newdata);
     currentdb.push(newdata);
     fs.writeFileSync(
         path.join(__dirname, '/db/db.json'), JSON.stringify(currentdb), 
