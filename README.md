@@ -9,8 +9,9 @@
 
 * Screenshot of deployed Application
 
-![ScreenShot of the deployed application](https://github.com/marycatau/Weather-Dashboard/blob/main/assets/image/Screenshot%20of%20the%20deployed%20Application.jpeg?raw=true)
+![ScreenShot of the deployed application](https://github.com/marycatau/Note-Taker/blob/main/public/assets/image/ScreenshotOne.jpeg?raw=true)
 
+![ScreenShot of the deployed application](https://github.com/marycatau/Note-Taker/blob/main/public/assets/image/ScreenshotTwo.jpeg?raw=true)
 
 * Link to deployed Heroku application
 
